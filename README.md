@@ -4,7 +4,7 @@
 - Obtener información del sistema vulnerable
   	*Para saber la ip del dispositivo al que queremos atacar usaremos:*
 
-  	arp-scan -l
+  	  arp-scan -l
 
    	<br>
     
@@ -12,7 +12,7 @@
 
 	*Para saber lo puertos que están abiertos utilizaremos*
 
-  	nmap *ip del servidor*
+  	  nmap *ip del servidor*
 
   	<br>
    	*Si queremos un puerto en especifipo nos sirve el -p*
