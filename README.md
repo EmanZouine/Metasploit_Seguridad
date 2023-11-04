@@ -2,6 +2,7 @@
 
 ## Máquina Windows con vulnerabilidades
 - Obtener información del sistema vulnerable
+
   	*Para saber la ip del dispositivo al que queremos atacar usaremos:*
 
   	  arp-scan -l
