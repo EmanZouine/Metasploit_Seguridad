@@ -324,6 +324,22 @@ Una vez empezada la restauración podremos ver una barra de progreso que una vez
 ## Actividad 4. 
 Analiza, configura y prueba la herramienta de copia de seguridad Cobian Backup.
 
+Cobian Backup se compone de dos partes. El servicio y la aplicación con la interfaz de usuario por lo que primero hay que iniciar el servicio y luego la aplicación.
+
+Tras iniciar la aplicación iniciamos una tarea
+
+![](imagenes/seg_pasiva/E4/Task4.1.png)
+![](imagenes/seg_pasiva/E4/Task4.2.png)
+![](imagenes/seg_pasiva/E4/Task4.3.png)
+
+Para que no de problemas de seguridad aunque no es aconsejable quitamos el protocolo ssl
+
+![](imagenes/seg_pasiva/E4/Task4.4.png)
+
+Luego le daremos a ejecutar y deberá de salirnos una una parntalla tal que así
+
+![](imagenes/seg_pasiva/E4/Task4.5.png)
+
 <br>
 
 ## Actividad 5.
@@ -385,6 +401,11 @@ Luego en el historial del backup podemos ver que la restauración ha sido exitos
 
 ## Actividad 6
 Configura y automatiza la copia de seguridad en un entorno linux de una estructura de directorios. Utiliza para ello el comando tar y el servicio crond consideramos que la copia se realiza en el mismo equipo.
+
+Generamos este script y lo metemos dento de /etc/cron.daily o lo metemos dentro del contab y le ponemos cada cuanto queremos que se ejecute
+
+![](imagenes/seg_pasiva/E6/Task6.2.png)
+![](imagenes/seg_pasiva/E6/Task6.3.png)
 
 <br>
 
@@ -479,6 +500,42 @@ Puedes hacer backup de una amplia variedad de recursos y servicios. Algunos de l
 
 <br>
 
+## Actividad 12
+
+Configura y automatiza la copia de seguridad en un entorno linux de una estructura de directorios. Utiliza para ello el comando duplicity y el servicio crond – consideramos que la copia se realiza en el mismo equipo-.
+
+Para eso debemos hacer un crontab -e y ejecutarlo como nano 
+
+![](imagenes/seg_pasiva/E10/Task10.2.png)
+
+Despues debemos meterlo de esta manera
+
+![](imagenes/seg_pasiva/E10/Task10.1.png)
+
+
+<br>
+
+## Actividad 14
+Explica y ejercita las opciones más importantes de la herramienta de clonación Clonezilla. Considera que la clonación se realiza en el mismo equipo. Realiza la restauración con el fin de comprobar el proceso realizado. 
+
+Para realizar esto debemos instalar la iso en un disco duro. Tras su intalación e inicialización debemos de escoger un disco en el que se creará la imagen
+
+![](imagenes/seg_pasiva/E14/1.png)
+![](imagenes/seg_pasiva/E14/2.png)
+![](imagenes/seg_pasiva/E14/3.png)
+
+Luego debemos guardar la imagen en el disco local 
+
+![](imagenes/seg_pasiva/E14/4.png)
+
+Luego se copiara 
+
+![](imagenes/seg_pasiva/E14/5.png)
+![](imagenes/seg_pasiva/E14/6.png)
+
+Como vemos se podrá restaurar todo el primer disco
+<br>
+
 ## Actividad 21
 Instalación y puesta en marcha de un sistema de almacenamiento compartido NAS. Utilizar Openfiler.
 
@@ -529,9 +586,16 @@ Podremos ver los dos directorios creados y donde estan montados
 (No pude hacer los clientes porque me estaban dando problemas el adaptador puente tanto en VMware como Virtualbox)
 
 ## Actividad 22
+
 Instalación y puesta en marcha de un sistema de almacenamiento compartido SAN. Utilizar Openfiler.
 
-##
+Para hacer esto debemos iniciar el servicio SCSI Target en un volumen y tras iniciar este servicio ya lo deberíamos tener tras ponerle los permisos que debemos para conectarnos con el volumen
+
+![](imagenes/seg_pasiva/E22/Task22.5.png)
+![](imagenes/seg_pasiva/E22/Task22.6.png)
+![](imagenes/seg_pasiva/E22/Task22.7.png)
+
+Luego en las maquinas debemos habiliter el protocolo SCSI y conectarnos al volumen con la dirección que nos da como SCSI server
 
 ##
 
