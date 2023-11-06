@@ -520,18 +520,18 @@ Explica y ejercita las opciones más importantes de la herramienta de clonación
 
 Para realizar esto debemos instalar la iso en un disco duro. Tras su intalación e inicialización debemos de escoger un disco en el que se creará la imagen
 
-![](imagenes/seg_pasiva/E14/1.png)
-![](imagenes/seg_pasiva/E14/2.png)
-![](imagenes/seg_pasiva/E14/3.png)
+![](imagenes/seg_pasiva/E14/Task14.1.png)
+![](imagenes/seg_pasiva/E14/Task14.2.png)
+![](imagenes/seg_pasiva/E14/Task14.3.png)
 
 Luego debemos guardar la imagen en el disco local 
 
-![](imagenes/seg_pasiva/E14/4.png)
+![](imagenes/seg_pasiva/E14/Task14.4.png)
 
 Luego se copiara 
 
-![](imagenes/seg_pasiva/E14/5.png)
-![](imagenes/seg_pasiva/E14/6.png)
+![](imagenes/seg_pasiva/E14/Task14.5.png)
+![](imagenes/seg_pasiva/E14/Task14.6.png)
 
 Como vemos se podrá restaurar todo el primer disco
 <br>
