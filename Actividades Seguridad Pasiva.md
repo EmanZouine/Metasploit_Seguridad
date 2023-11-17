@@ -539,7 +539,70 @@ Como vemos se podrá restaurar todo el primer disco
 ## Actividad 21
 Instalación y puesta en marcha de un sistema de almacenamiento compartido NAS. Utilizar Openfiler.
 
-Para configurar un servidor NAS con Openfiler tendremos que acceder a su pagina web en el navegador con su ip y el puerto 446, iniciaremos sesion con el usuario openfiler y contraseña password
+La instalación de Openfiler es muy simple, se peude hacer de dos maneras de forma gráfica y en terminal, ya que podemos en este caso lo haremos por gráfico, para ello una vez iniciada la máquina con la iso del Openfiler le daremos a enter ya que así se inicia la instalación por gráfico
+
+![](imagenes/seg_pasiva/E21/20.png)
+
+Dejaremos que cargue y después le damos a Next
+
+![](imagenes/seg_pasiva/E21/21.png)
+
+Seleccionamos el idioma de teclado que va a usar en este caso Spanish y le damos a Next
+
+![](imagenes/seg_pasiva/E21/22.png)
+
+Saldrá una advertencia que dice que la tabla de particiones no se puede leer, le decimos Yes y nos llevará al siguiente paso
+
+![](imagenes/seg_pasiva/E21/23.png)
+
+En este apartado solo marcaremos la opción de modificar la tabla de particiones y le damos a Next
+
+![](imagenes/seg_pasiva/E21/24.png)
+
+Te avisa después de que se borraran todas las particiones, le damos a Yes
+
+![](imagenes/seg_pasiva/E21/25.png)
+
+Dentro de la configuración saldrá una sección que es el espacio libre del disco, la seleccionamos y le damos a Edit, en el desplegable seleccionamos convertirlo en un Volumen Fisico y seleccionamos que tome todo el espacio disponible y le damos a OK
+
+![](imagenes/seg_pasiva/E21/26.png)
+
+Luego una vez creado lo volvemos a seleccionar y tomamos la opción de LVM para meter este volumen fisico en un grupo de volumenes, que llamaremos VolGroup00 y le damos a OK
+
+![](imagenes/seg_pasiva/E21/27.png)
+
+Y una vez terminemos veremos ese volumen con las configuraciones hechas en la tabla de particiones
+
+![](imagenes/seg_pasiva/E21/28.png)
+
+En este apartado solo le damos a Next y dejamos todo por defecto
+
+![](imagenes/seg_pasiva/E21/29.png)
+
+Aquí también lo dejamos por defecto teniendo en cunata que la máquina esta en NAT o Adpatador Puente porque sino habrá que configurar la ip del servidor
+
+![](imagenes/seg_pasiva/E21/30.png)
+
+Ahora seleccionaremos nuestra ciudad para que tome la zona horaria del país en el que estamos
+
+![](imagenes/seg_pasiva/E21/31.png)
+
+Después decidimos que contraseña ponerle al root del Openfiler
+
+![](imagenes/seg_pasiva/E21/32.png)
+
+Y finalmente instalaremos el Openfiler dandole a Next y se nos abrirá una barra de progreso
+
+![](imagenes/seg_pasiva/E21/33.png)
+![](imagenes/seg_pasiva/E21/34.png)
+![](imagenes/seg_pasiva/E21/35.png)
+
+Una vz ya instalada y completada la barra se nos quedará cargando un rato con esta pantalla, esperamos ya justo depsues podremos acceder al sistema
+
+![](imagenes/seg_pasiva/E21/36.png)
+![](imagenes/seg_pasiva/E21/37.png)
+
+Y ahora si que podremos acceder a su pagina web en el navegador con su ip y el puerto 446, iniciaremos sesion con el usuario openfiler y contraseña password
 
 ![](imagenes/seg_pasiva/E21/1.png)
 
@@ -551,11 +614,11 @@ Para indicar la forma a la que accederan los clientes para guardar sus ficheros 
 
 ![](imagenes/seg_pasiva/E21/3.png)
 
-Ahora tendremos que darle acceso al servidor a la ip o el rango de ips que queramos, ene ste caso yo dejaré que cualquiera que este dentro de la red 192.168.0.0 y con máscara 255.255.0.0 pueda acceder al servidor NAS para guardar los archivos
+Ahora tendremos que darle acceso al servidor a la ip o el rango de ips que queramos, en este caso yo pondré las ips de mis clientes que tendrán mascara /24 para que  puedan acceder al servidor NAS para guardar los archivos
 
 ![](imagenes/seg_pasiva/E21/4.png)
 
-En este caso tenemos un volumen físico que será donde se guarden los archivos, el volumen es el resto de espacio libre que tiene el disco, esto lo configuramos de forma sencilla en el proceso de instalación creando tambien un grupo de voluemens, ene ste partado del grupo de volumenes creamos un volumen llamado Volumen1
+En este caso tenemos un volumen físico que será donde se guarden los archivos, en este partado del grupo de volumenes creamos un volumen llamado Volumen1
 
 ![](imagenes/seg_pasiva/E21/5.png)
 
@@ -567,13 +630,13 @@ Luego si pinchamos en un directorio podremos darla a Make Share para compartirlo
 
 ![](imagenes/seg_pasiva/E21/7.png)
 
-Se nos abirra esta parte donde en Share Acces Control Mode le tenemos que habilitar el acceso público y le damos a Update
+Se nos abrira esta parte donde en Share Acces Control Mode le tenemos que habilitar el acceso público y le damos a Update
 
 ![](imagenes/seg_pasiva/E21/8.png)
 
 En la misma ventana si bajamos se nos enseñará la configuración del host y veremos que en el apartado NFS esta en No, eso lo cambiamos a RO en mi caso, para que solo puedan leer pero para leer y escribir seleccionamos RW luego le damos a Update
 
-![](imagenes/seg_pasiva/E21/9.png)
+![](imagenes/seg_pasiva/E21/9-1.png)
 
 Si en la maquina ponemos el comando:
 
@@ -596,13 +659,4 @@ Para hacer esto debemos iniciar el servicio SCSI Target en un volumen y tras ini
 ![](imagenes/seg_pasiva/E22/Task22.7.png)
 
 Luego en las maquinas debemos habiliter el protocolo SCSI y conectarnos al volumen con la dirección que nos da como SCSI server
-
-##
-
-##
-
-##
-
-##
-
 
