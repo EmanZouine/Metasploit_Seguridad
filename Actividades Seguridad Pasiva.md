@@ -637,6 +637,7 @@ Se nos abrira esta parte donde en Share Acces Control Mode le tenemos que habili
 En la misma ventana si bajamos se nos enseñará la configuración del host y veremos que en el apartado NFS esta en No, eso lo cambiamos a RO en mi caso, para que solo puedan leer pero para leer y escribir seleccionamos RW luego le damos a Update
 
 ![](imagenes/seg_pasiva/E21/9-1.png)
+![](imagenes/seg_pasiva/E21/9-2.png)
 
 Si en la maquina ponemos el comando:
 
@@ -646,7 +647,43 @@ Podremos ver los dos directorios creados y donde estan montados
 
 ![](imagenes/seg_pasiva/E21/10.png)
 
-(No pude hacer los clientes porque me estaban dando problemas el adaptador puente tanto en VMware como Virtualbox)
+Ahora para probarlo en los clientes Linux y windows haremos unas configuraciones sencillas.
+
+Para Linux el proceso es simple, lo primero será descargarnos los paquetes "nfs-common" y "rpcbind"
+
+![](imagenes/seg_pasiva/E21/40.png)
+
+Ahora lo que haremos será crear un directorio y darlo todos los permisos para poder montarlo por nfs al directorio compartido en el Openfiler con el comando
+
+    sudo mount *ip_servidor*:*ruta_directorio* *directorio_montaje*
+
+![](imagenes/seg_pasiva/E21/41.png)
+
+Comprobaremos el correcto funcionamiento del punto de montaje creando un fichero dentro de la carpeta compartida en el Openfiler y luego comprobarlo en el Linux cliente
+
+![](imagenes/seg_pasiva/E21/43.png)
+![](imagenes/seg_pasiva/E21/44.png)
+
+Para Windows es muy sencillo, pero esta vez en vez de instalar un paquete tendremos que activar unas características del propio sistema siguiendo esta ruta "Panel de control -> Programas -> Programas y características -> Activar o desactivar características de Windows", se nos abrirá una ventana donde buscaremos el apartado "Servicios para NFS", seleccionaremos las dos características dentro de esta, cuando le demos a Aceptar tendremos que esperar a que se haga la correcta instalación
+
+![](imagenes/seg_pasiva/E21/70.png)
+![](imagenes/seg_pasiva/E21/71.png)
+
+Una vez ya instalada la característica nos iremos a la cmd para ejecutar el comando 
+
+    mount -o anon *ip_servidor*:*ruta_directorio* *letra_montaje*
+
+Finalmente haremos la comprobación creando igual que en Linux un fichero para leer en el Windows desde el Openfiler
+
+![](imagenes/seg_pasiva/E21/73.png)
+
+Si nos vamos al punto de montaje en el windows podremos ver que el fichero existe y lo podemos leer, además podremos modificarlo y guardarlo 
+
+![](imagenes/seg_pasiva/E21/74.png)
+
+Si nos vamos finalmente al Openfiler y leemos el fichero veremos la modificación realizada en el fichero
+
+![](imagenes/seg_pasiva/E21/75.png)
 
 ## Actividad 22
 
